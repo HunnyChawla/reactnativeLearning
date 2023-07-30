@@ -1,13 +1,17 @@
-import { StyleSheet,Text } from "react-native";
+import { Pressable, StyleSheet, Text } from "react-native";
 
-function GoalItem(itemData) {
-    return(<Text style = {styles.goalItem} >{itemData.text}</Text>)
+function GoalItem(props) {
+    return (
+        <Pressable onPress = {props.onDelete.bind(this, props.id)} >
+            <Text style={styles.goalItem} >{props.text}</Text>
+        </Pressable>
+    )
 }
 
 const styles = StyleSheet.create({
     goalItem: {
-        backgroundColor:'purple',
-        padding:5,
+        backgroundColor: 'purple',
+        padding: 5,
         margin: 8,
         color: 'white',
         borderRadius: 5,
